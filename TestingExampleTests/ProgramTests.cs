@@ -11,6 +11,10 @@ namespace TestingExample.Tests
         [TestMethod()]
         [TestCategory("Program")]
         [TestProperty("Program", "Contains")]
+        [TestCategory("Edge Coverage")]
+        [TestProperty("Edge Coverage", "1")]
+        [TestCategory("Test Path Coverage")]
+        [TestProperty("Test Path Coverage", "1")]
         public void Contains_當傳入引數source為Null時_應拋出ArgumentNullException的例外狀況()
         {
             // Arrange
@@ -28,6 +32,10 @@ namespace TestingExample.Tests
         [TestMethod()]
         [TestCategory("Program")]
         [TestProperty("Program", "Contains")]
+        [TestCategory("Edge-Pair Coverage")]
+        [TestProperty("Edge-Pair Coverage", "1")]
+        [TestCategory("Test Path Coverage")]
+        [TestProperty("Test Path Coverage", "2")]
         public void Contains_當傳入引數source為空集合時_應回傳False()
         {
             // Arrange
@@ -44,6 +52,8 @@ namespace TestingExample.Tests
         [TestMethod()]
         [TestCategory("Program")]
         [TestProperty("Program", "Contains")]
+        [TestCategory("Test Path Coverage")]
+        [TestProperty("Test Path Coverage", "3")]
         public void Contains_當傳入引數source為只有單元素集合與value為集合內沒有的項目時_應回傳False()
         {
             // Arrange
@@ -60,6 +70,10 @@ namespace TestingExample.Tests
         [TestMethod()]
         [TestCategory("Program")]
         [TestProperty("Program", "Contains")]
+        [TestCategory("Edge Coverage")]
+        [TestProperty("Edge Coverage", "2")]
+        [TestCategory("Edge-Pair Coverage")]
+        [TestProperty("Edge-Pair Coverage", "2")]
         public void Contains_當傳入引數source為多元素集合與value為集合內沒有的項目時_應回傳False()
         {
             // Arrange
@@ -76,6 +90,8 @@ namespace TestingExample.Tests
         [TestMethod()]
         [TestCategory("Program")]
         [TestProperty("Program", "Contains")]
+        [TestCategory("Test Path Coverage")]
+        [TestProperty("Test Path Coverage", "4")]
         public void Contains_當傳入引數source為只有單元素集合與value為集合內有的項目時_應回傳True()
         {
             // Arrange
@@ -92,6 +108,12 @@ namespace TestingExample.Tests
         [TestMethod()]
         [TestCategory("Program")]
         [TestProperty("Program", "Contains")]
+        [TestCategory("Edge Coverage")]
+        [TestProperty("Edge Coverage", "3")]
+        [TestCategory("Edge-Pair Coverage")]
+        [TestProperty("Edge-Pair Coverage", "3")]
+        [TestCategory("Test Path Coverage")]
+        [TestProperty("Test Path Coverage", "5")]
         public void Contains_當傳入引數source為多元素集合與value為集合內有的項目時_應回傳True()
         {
             // Arrange
