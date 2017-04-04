@@ -4,7 +4,7 @@ using TestingExample.Implements;
 
 namespace TestingExample
 {
-    public class Program
+    internal class Program
     {
         private static void Main(string[] args)
         {
