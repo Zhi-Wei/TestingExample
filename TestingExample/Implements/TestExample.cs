@@ -8,7 +8,8 @@ namespace TestingExample.Implements
     /// 測試範例。
     /// </summary>
     /// <seealso cref="TestingExample.Interfaces.IContainable" />
-    public class TestExample : IContainable
+    /// <seealso cref="TestingExample.Interfaces.IInRangeable" />
+    public class TestExample : IContainable, IInRangeable
     {
         /// <summary>
         /// 判斷來源序列是否包含指定的項目，使用預設相等比較子。
@@ -35,6 +36,22 @@ namespace TestingExample.Implements
                 {
                     return true;
                 }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 判斷指定的數字是否在特定的範圍內。
+        /// </summary>
+        /// <param name="number">指定的數字。</param>
+        /// <returns>
+        /// 若指定的數字在特定的範圍內則回傳 <c>true</c>，否則回傳 <c>false</c>。
+        /// </returns>
+        public bool IsInRange(int number)
+        {
+            if (number > 60 && number < 120)
+            {
+                return true;
             }
             return false;
         }
