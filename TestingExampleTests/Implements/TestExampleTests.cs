@@ -29,6 +29,8 @@ namespace TestingExample.Implements.Tests
 
         #endregion -- 前置準備 --
 
+        #region -- Contains --
+
         [TestMethod()]
         [TestCategory("TestExample")]
         [TestProperty("TestExample", "Contains")]
@@ -305,5 +307,75 @@ namespace TestingExample.Implements.Tests
             // Assert
             actual.Should().BeFalse();
         }
+
+        #endregion -- Contains --
+
+        #region -- IsInRange --
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Predicate Coverage")]
+        [TestProperty("Predicate Coverage", "1")]
+        [TestCategory("Clause Coverage")]
+        [TestProperty("Clause Coverage", "1")]
+        [TestCategory("Combinatorial Coverage")]
+        [TestProperty("Combinatorial Coverage", "1")]
+        public void IsInRange_當傳入引數number為大於60且小於120時_應回傳True()
+        {
+            // Arrange
+            var number = 90;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Predicate Coverage")]
+        [TestProperty("Predicate Coverage", "2")]
+        [TestCategory("Clause Coverage")]
+        [TestProperty("Clause Coverage", "2")]
+        [TestCategory("Combinatorial Coverage")]
+        [TestProperty("Combinatorial Coverage", "2")]
+        public void IsInRange_當傳入引數number為小於60且小於120時_應回傳False()
+        {
+            // Arrange
+            var number = 50;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Clause Coverage")]
+        [TestProperty("Clause Coverage", "3")]
+        [TestCategory("Combinatorial Coverage")]
+        [TestProperty("Combinatorial Coverage", "3")]
+        public void IsInRange_當傳入引數number為大於60且大於120時_應回傳False()
+        {
+            // Arrange
+            var number = 130;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        #endregion -- IsInRange --
     }
 }
