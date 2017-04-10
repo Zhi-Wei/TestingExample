@@ -27,6 +27,11 @@ namespace TestingExample.Implements.Tests
             return builder.ToString();
         }
 
+        private IEnumerable<int> GetFiveLevelLikertItems()
+        {
+            return new List<int> { 5, 4, 3, 2, 1 };
+        }
+
         #endregion -- 前置準備 --
 
         #region -- Contains --
@@ -299,6 +304,158 @@ namespace TestingExample.Implements.Tests
             // Arrange
             var source = new List<object> { 1 };
             object value = "1";
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "1")]
+        public void Contains_當傳入引數source為五點計分集合與value為小於0的整數時_應回傳False()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = -1;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "2")]
+        public void Contains_當傳入引數source為五點計分集合與value為等於0的整數時_應回傳False()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = 0;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "3")]
+        public void Contains_當傳入引數source為五點計分集合與value為等於1的整數時_應回傳True()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = 1;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "4")]
+        public void Contains_當傳入引數source為五點計分集合與value為等於2的整數時_應回傳True()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = 2;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "5")]
+        public void Contains_當傳入引數source為五點計分集合與value為等於3的整數時_應回傳True()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = 3;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "6")]
+        public void Contains_當傳入引數source為五點計分集合與value為等於4的整數時_應回傳True()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = 4;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "7")]
+        public void Contains_當傳入引數source為五點計分集合與value為等於5的整數時_應回傳True()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = 5;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.Contains(source, value);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "Contains")]
+        [TestCategory("Input Domain Characterization")]
+        [TestProperty("Input Domain Characterization", "8")]
+        public void Contains_當傳入引數source為五點計分集合與value為大於5的整數時_應回傳False()
+        {
+            // Arrange
+            var source = this.GetFiveLevelLikertItems();
+            var value = 6;
             var sut = this.GetSystemUnderTestInstance();
 
             // Act
