@@ -47,6 +47,7 @@
     <Compile Include="Implements\TestExample.cs" />
     <Compile Include="Interfaces\IContainable.cs" />
     <Compile Include="Interfaces\IInRangeable.cs" />
+    <Compile Include="Interfaces\IPasswordValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
