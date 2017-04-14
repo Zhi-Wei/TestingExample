@@ -107,15 +107,8 @@ namespace TestingExample.Implements
                 item => this._requireUppercase && item.All(c => this.IsUpper(c) == false)
             };
 
-            foreach (var func in checkList)
-            {
-                if (func(password))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            var result = checkList.Any(func => func(password)) == false;
+            return result;
         }
 
         /// <summary>
