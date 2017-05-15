@@ -533,6 +533,114 @@ namespace TestingExample.Implements.Tests
             actual.Should().BeFalse();
         }
 
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Boundary Value")]
+        [TestProperty("Boundary Value", "1")]
+        public void IsInRange_當傳入引數number為小於下限60的59時_應回傳False()
+        {
+            // Arrange
+            var number = 59;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Boundary Value")]
+        [TestProperty("Boundary Value", "2")]
+        public void IsInRange_當傳入引數number為等於下限60的60時_應回傳False()
+        {
+            // Arrange
+            var number = 60;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Boundary Value")]
+        [TestProperty("Boundary Value", "3")]
+        public void IsInRange_當傳入引數number為大於下限60的61時_應回傳True()
+        {
+            // Arrange
+            var number = 61;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Boundary Value")]
+        [TestProperty("Boundary Value", "4")]
+        public void IsInRange_當傳入引數number為小於上限120的119時_應回傳True()
+        {
+            // Arrange
+            var number = 119;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeTrue();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Boundary Value")]
+        [TestProperty("Boundary Value", "4")]
+        public void IsInRange_當傳入引數number為等於上限120的120時_應回傳False()
+        {
+            // Arrange
+            var number = 120;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
+        [TestMethod()]
+        [TestCategory("TestExample")]
+        [TestProperty("TestExample", "IsInRange")]
+        [TestCategory("Boundary Value")]
+        [TestProperty("Boundary Value", "4")]
+        public void IsInRange_當傳入引數number為大於上限120的121時_應回傳False()
+        {
+            // Arrange
+            var number = 121;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            var actual = sut.IsInRange(number);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
+
         #endregion -- IsInRange --
     }
 }
