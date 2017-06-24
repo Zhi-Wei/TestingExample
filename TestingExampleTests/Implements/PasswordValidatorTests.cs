@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using TestingExample.Models;
 
 namespace TestingExample.Implements.Tests
 {
@@ -15,6 +16,42 @@ namespace TestingExample.Implements.Tests
         }
 
         #endregion -- 前置準備 --
+
+        [TestMethod()]
+        [TestCategory("PasswordValidator")]
+        [TestProperty("PasswordValidator", "Constructor")]
+        public void PasswordValidator_當無參數建構式初始化新的執行個體時_應無拋出例外狀況()
+        {
+            // Arrange
+            // Act
+            Action actual = () => new PasswordValidator();
+
+            // Assert
+            actual.ShouldNotThrow();
+        }
+
+        [TestMethod()]
+        [TestCategory("PasswordValidator")]
+        [TestProperty("PasswordValidator", "Constructor")]
+        public void PasswordValidator_當有參數建構式初始化新的執行個體時_應無拋出例外狀況()
+        {
+            // Arrange
+            PasswordPolicy policy = new PasswordPolicy
+            {
+                RequiredMinimumLength = 8,
+                RequiredMaximumLength = 32,
+                RequireNonLetterOrDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true,
+                RequireDigit = true
+            };
+
+            // Act
+            Action actual = () => new PasswordValidator(policy);
+
+            // Assert
+            actual.ShouldNotThrow();
+        }
 
         [TestMethod()]
         [TestCategory("PasswordValidator")]
